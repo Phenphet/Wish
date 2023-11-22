@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='form/form.css')}}">
+    <title>test</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-title">
+            <h1>insert text wish</h1>
+            <hr>
+        </div>
+        <div class="card-bordy">
+            <label for="input1">fullname :</label>
+            <input type="text" name="fullname" id="fullname">
+            <hr>
+        </div>
+        <div class="card-bordy">
+            <label for="input1">wish :</label>
+            <textarea name="wish" id="wish" cols="30" rows="10"></textarea>
+            <hr>
+        </div>
+        <div class="card-bordy">
+            <button class="btn" id="button" onclick="Submit()">save</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{{url_for('static', filename='form/form.js')}}"></script>
+</body>
+</html>
