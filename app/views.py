@@ -30,10 +30,10 @@ def form():
                     database = Models()
                     database_massage = database.Insert_Data(form_darta)
                     if database_massage == 'success':
-                        print('เพิ่มข้อมูลเรียบร้อย')
+                        # print('เพิ่มข้อมูลเรียบร้อย')
                         return jsonify({'success': 'บันทึกข้อมูลเรียบร้อยเเล้ว'})
                     else:
-                        print(f'พบข้อผิดพลาด : {database_massage}')
+                        # print(f'พบข้อผิดพลาด : {database_massage}')
                         return jsonify({'error': 'เกิดข้อผิดพลาดในการบันทึกข้อมูล'})
         except Exception as ex:
             return jsonify({'error': f'ตรวจพบข้อผิดพลาด : {ex}'})

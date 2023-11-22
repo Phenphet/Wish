@@ -15,6 +15,7 @@ const Submit = () => {
                 alert(`${response.error}`)
             }else{
                 alert(`${response.success}`)
+                window.location.href = '/'
             }
         },
         error: function(xhr, status, error){
