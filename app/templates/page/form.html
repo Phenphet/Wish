@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='form/form.css')}}">
-    <title>test</title>
-</head>
-<body>
+{% extends 'page/templates/layout.html' %}
+
+{% block title %} Form Wish {% endblock %}
+{% block StyleCss %} <link rel="stylesheet" href="{{url_for('static', filename='form/form.css')}}"> {% endblock %}
+{% block content %}
     <div class="card">
         <div class="card-title">
             <h1>insert text wish</h1>
@@ -26,7 +22,8 @@
             <button class="btn" id="button" onclick="Submit()">save</button>
         </div>
     </div>
+{% endblock %}
+{% block javascriptfile %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{url_for('static', filename='form/form.js')}}"></script>
-</body>
-</html>
+{% endblock %}

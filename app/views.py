@@ -35,4 +35,4 @@ def form():
                         return jsonify({'error': 'เกิดข้อผิดพลาดในการบันทึกข้อมูล'})
         except Exception as ex:
             return jsonify({'error': f'ตรวจพบข้อผิดพลาด : {ex}'})
-    return render_template('form.html')
+    return render_template('page/form.html')
