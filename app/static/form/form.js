@@ -27,3 +27,9 @@ const Clear_form = () => {
     $('#fullname').val('') 
     $('#wish').val('')
 }
+
+
+
+const Cancel = () => {
+    window.location.href = '/'
+}
