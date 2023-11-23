@@ -8,7 +8,7 @@ def home():
     try:
         database = Models()
         query = database.Select_Data()
-        return render_template('page/index.html', data=query['data'])
+        return render_template('page/home.html', data=query['data'])
     except Exception as ex:
         return f'error {ex}'
 
