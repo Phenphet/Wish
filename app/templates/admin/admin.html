@@ -1,0 +1,44 @@
+{% extends 'admin/templates/layout.html' %}
+{% block title %}  admin {% endblock %}
+{% block content %} 
+    <div class="container mt-4">
+        <header>
+            <p class="fs-4 text-center p-3">หน้าอวยพร</p>
+        </header>
+        <main class="mt-5 border p-3">
+            <table id="myTable" class="display table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Fullname</th>
+                        <th>Wish</th>
+                        <th>Time</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in datas %}
+                            <tr>
+                                <td>{{ data.id }}</td>
+                                <td>{{ data.fullname }}</td>
+                                <td>{{ data.wish }}</td>
+                                <td>{{ data.time }}</td>
+                                <td>
+                                    <button class="btn btn-warning" onclick="">edit</button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger"  onclick="">del</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </main>
+    </div>
+    <script>	
+        $(document).ready( () => {
+            $('#myTable').DataTable()
+        })
+    </script>
+{% endblock %}
