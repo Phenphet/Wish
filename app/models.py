@@ -6,11 +6,11 @@ class Models:
         self.db = database_path
         self.migation_table()
 
-    def GenerateConect(self):
+    def GenerateConect(self) -> str:
         connect = sqlite3.connect(self.db)
         return connect
     
-    def migation_table(self) : 
+    def migation_table(self) -> None: 
         connect = self.GenerateConect()
         cursor = connect.cursor()
         query = cursor.execute('SELECT name FROM sqlite_master WHERE type="table" and name="tbl_wish"').fetchall()
@@ -40,10 +40,10 @@ class Models:
                 }
                 datas.append(row)
             return {'data':datas}
-        except Exception as e:
-            return {'error' : e}
+        except Exception as ex:
+            return {'error' : ex}
 
-    def Insert_Data(self, data: dict):
+    def Insert_Data(self, data: dict) -> None:
         try:   
             connect = self.GenerateConect()
             cursor = connect.cursor()

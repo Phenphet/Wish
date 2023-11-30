@@ -4,7 +4,7 @@ const Submit = () => {
         'wish': $('#wish').val()
     }
     $.ajax({
-        url : '/form/',
+        url : '/wish/form/ldo',
         method : 'POST',
         data : Form_data,
         success : function(response) {

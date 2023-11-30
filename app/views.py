@@ -12,7 +12,7 @@ def home():
     except Exception as ex:
         return f'error {ex}'
 
-@app.route('/form/', methods=['GET', 'POST'])
+@app.route('/wish/form/ldo', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
         try:
