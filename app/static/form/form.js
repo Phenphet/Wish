@@ -1,7 +1,9 @@
 const Submit = () => {
     const Form_data = {
         'fullname': $('#fullname').val(),
-        'wish': $('#wish').val()
+        'wish': $('#wish').val(),
+        'department': $('#department').val(),
+        'company': $('#company').val()
     }
     $.ajax({
         url : '/wish/form/ldo',
@@ -15,7 +17,7 @@ const Submit = () => {
                 alert(`${response.error}`)
             }else{
                 alert(`${response.success}`)
-                window.location.href = '/'
+                window.location.href = '/wish/'
             }
         },
         error: function(xhr, status, error){
@@ -23,13 +25,14 @@ const Submit = () => {
         }
     })
 }
+
 const Clear_form = () => {
     $('#fullname').val('') 
     $('#wish').val('')
+    $('#department').val('')
+    $('#company').val('')
 }
 
-
-
 const Cancel = () => {
-    window.location.href = '/'
+    window.location.href = '/wish/'
 }

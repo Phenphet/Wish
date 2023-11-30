@@ -11,15 +11,27 @@
             </div>
             <div class="card-body">
                 <div class="row mb-3">
-                    <label for="input1" class="col-sm-2 col-form-label text-start">ชื่อ-นามสกุล&nbsp;&nbsp;:</label>
+                    <label for="fullname" class="col-sm-2 col-form-label text-start">ชื่อ-นามสกุล&nbsp;&nbsp;:</label>
                     <div class="col-sm-10">
                         <input type="text" name="fullname" id="fullname" class="form-control" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="input1" class="col-sm-2 col-form-label text-start">คำอวยพร&nbsp;&nbsp;:</label>
+                    <label for="wish" class="col-sm-2 col-form-label text-start">คำอวยพร&nbsp;&nbsp;:</label>
                     <div class="col-sm-10">
                         <textarea name="wish" id="wish" cols="30" rows="10" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3 d-flex justify-content-center align-items-center">
+                    <label for="department" class="col-sm-2 col-form-label text-start">แผนก &nbsp;/&nbsp; ตำแหน่งงาน&nbsp;&nbsp;:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="department" id="department" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="input1" class="col-sm-2 col-form-label text-start">บริษัท&nbsp;&nbsp;:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="company" id="company" class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -32,5 +44,5 @@
 {% endblock %}
 {% block javascriptfile %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{url_for('static', filename='form/form.js')}}"></script>
+    <script src="{{ url_for('static', filename='form/form.js') }}"></script>
 {% endblock %}

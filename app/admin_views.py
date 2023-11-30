@@ -2,7 +2,7 @@ from app import app
 from flask import render_template
 from app.models import Models
 
-@app.route('/admin/')
+@app.route('/admin/table/')
 def admin():
     database = Models()
     query = database.Select_Data()
@@ -11,3 +11,7 @@ def admin():
 @app.route('/admin/login/')
 def login():
     return render_template('admin/login.html')
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404

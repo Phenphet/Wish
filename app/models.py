@@ -19,7 +19,9 @@ class Models:
                 CREATE TABLE tbl_wish (
                     id INTEGER PRIMARY KEY AUTOINCREMENT, 
                     fullname VARCHAR(100), 
-                    wish VARCHAR(255), 
+                    wish VARCHAR(255),
+                    department VARCHAR(100),
+                    company VARCHAR(150), 
                     created DATETIME DEFAULT CURRENT_TIMESTAMP 
                 )
             """)
@@ -36,7 +38,9 @@ class Models:
                     'id': data[0],
                     'fullname': data[1],
                     'wish': data[2],
-                    'time': data[3]
+                    'department': data[3],
+                    'company' : data[4],
+                    'time' : data[5]
                 }
                 datas.append(row)
             return {'data':datas}
@@ -47,7 +51,7 @@ class Models:
         try:   
             connect = self.GenerateConect()
             cursor = connect.cursor()
-            cursor.execute("INSERT INTO tbl_wish (fullname, wish) VALUES('" + data['fullname'] + "','" + data['wish'] + "')")
+            cursor.execute("INSERT INTO tbl_wish (fullname, wish, department, company) VALUES('" + data['fullname'] + "','" + data['wish'] + "','" + data['department'] + "','" + data['company'] + "')")
             connect.commit()
             return 'success'
         except Exception as ex:
