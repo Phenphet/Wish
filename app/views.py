@@ -4,7 +4,7 @@ from app.check_text_wish import CheckText
 from flask import request, jsonify, render_template
 
 @app.route('/wish/', methods=['GET'])
-def home():
+def home_wish():
     try:
         database = Models()
         query = database.Select_Data()
@@ -13,7 +13,7 @@ def home():
         return f'error {ex}'
 
 @app.route('/wish/form/ldo/', methods=['GET', 'POST'])
-def form():
+def form_wish():
     if request.method == 'POST':
         try:
             form_darta = request.form
