@@ -9,7 +9,7 @@ const Submit = () => {
         url : '/wish/form/ldo',
         method : 'POST',
         data : Form_data,
-        success : function(response) {
+        success : (response) => {
             Clear_form()
             if (response.error && Array.isArray(response.data) && response.data.length > 0) {
                     alert(`${response.error} คำหยาบ ${response.data}`)
@@ -20,7 +20,7 @@ const Submit = () => {
                 window.location.href = '/wish/'
             }
         },
-        error: function(xhr, status, error){
+        error: (xhr, status, error) => {
             console.error('Error:', error)
         }
     })

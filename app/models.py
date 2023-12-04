@@ -1,5 +1,8 @@
 from app import db
 import sqlite3
+import datetime
+
+new_time = datetime.datetime.now()
 
 class Models:
     def __init__(self, database_path=db):
@@ -23,7 +26,7 @@ class Models:
                     department VARCHAR(100),
                     company VARCHAR(150), 
                     created DATETIME DEFAULT CURRENT_TIMESTAMP 
-                )
+                );
             """)
             connect.commit()
 
@@ -31,7 +34,7 @@ class Models:
         try:
             connect = self.GenerateConect()
             cursor = connect.cursor()
-            query = cursor.execute('SELECT * FROM tbl_wish ').fetchall()
+            query = cursor.execute('SELECT * FROM tbl_wish ORDER BY id DESC').fetchall()
             datas = []
             for data in query:
                 row = {
@@ -43,15 +46,15 @@ class Models:
                     'time' : data[5]
                 }
                 datas.append(row)
-            return {'data':datas}
+            return {'data' : datas}
         except Exception as ex:
             return {'error' : ex}
 
-    def Insert_Data(self, data: dict) -> None:
+    def Insert_Data(self, data: dict) -> str:
         try:   
             connect = self.GenerateConect()
             cursor = connect.cursor()
-            cursor.execute("INSERT INTO tbl_wish (fullname, wish, department, company) VALUES('" + data['fullname'] + "','" + data['wish'] + "','" + data['department'] + "','" + data['company'] + "')")
+            cursor.execute("INSERT INTO tbl_wish (fullname, wish, department, company) VALUES('" + data['fullname'] + "','" + data['wish'] + "','" + data['department'] + "','" + data['company'] + "');")
             connect.commit()
             return 'success'
         except Exception as ex:
@@ -59,6 +62,10 @@ class Models:
         
     def Delete_Data(self, Id_Data: int):
         try:
-            pass
+            connect = self.GenerateConect()
+            cursor = connect.cursor()
+            cursor.execute("DELETE FROM tbl_wish WHERE id = " + Id_Data + ";")
+            connect.commit()
+            print('complete')
         except Exception as ex:
-            return ex
+            return str(ex)

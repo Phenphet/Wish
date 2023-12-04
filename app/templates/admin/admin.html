@@ -3,7 +3,7 @@
 {% block content %} 
     <div class="p-2 p-sm-4 mt-4">
         <header>
-            <p class="fs-4 text-center p-3">หน้าอวยพร</p>
+            <p class="fs-4 text-center p-3">คำอวยพร</p>
         </header>
         <main class="mt-5 border p-3 table-responsive">
             <table id="myTable" class="display table table-striped ">
@@ -15,7 +15,6 @@
                         <th>Department & ตำแหน่ง</th>
                         <th>Company</th>
                         <th>Time</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
@@ -29,10 +28,7 @@
                                 <td>{{ data.company }}</td>
                                 <td>{{ data.time }}</td>
                                 <td>
-                                    <button class="btn btn-warning" onclick="">edit</button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger"  onclick="">del</button>
+                                    <button class="btn btn-danger"  onclick="Delete('{{data.id}}')">del</button>
                                 </td>
                             </tr>
                         {% endfor %}
